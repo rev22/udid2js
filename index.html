@@ -279,6 +279,9 @@ function resetform() {
 	documentElement("locationcell").className = "hidden";
 	documentElement("generated").className = "hidden";
 	emptyElement(documentElement("geonameslist"));
+	documentElement("lat").disabled    = false;
+	documentElement("lon").disabled    = false;
+	documentElement("place").disabled  = false;
 	return false;
    } catch (err) {
        alert("An error occurred: " + err.message);
@@ -898,7 +901,7 @@ input, select {
     </div>
     <div class=info>Your <a href="http://openudc.org/Specifications/OpenpgpIndividualCertification">UDID2</a> is the identification code that allows you to take part in the Open-UDC monetary community.</div>
     <div class=info>Your information on this form is processed by your web-browser; your birthplace is processed via geonames.org.</div>
-    <div class=info>Internet Explored users may need to enable accessing data sources across domains.</div>
+    <div class=info>Internet Explorer users may need to enable accessing data sources across domains.</div>
     <div class=info>This application requires Javascript.</div>
   </body>
 </html>
