@@ -811,6 +811,10 @@ h1,h2,h3 {
     text-align:left;
 }
 
+.alignr {
+    text-align:right;
+}
+
 .secondary {
     opacity: 0.8;
     font-size: 75%;
@@ -834,17 +838,17 @@ input, select {
       <div class=info>This form allows you to create your Open-UDC ID (UDID2).</div>
       <table>
 	<tr>
-	  <td>Your first name:</td>
+	  <td class=alignr>Given name:</td>
 	  <td class=inputcell>
 	    <input id=firstname size=30 type=text>
 	  </td>
-	</tr><tr>
-	  <td>Your last name:</td>
+	</tr><tr title="Your family name or surname">
+	  <td class=alignr>Family name:</td>
 	  <td class=inputcell>
 	    <input id=lastname size=30 type=text>
 	  </td>
 	</tr><tr>
-	  <td>Your birth date:</td>
+	  <td class=alignr>Birth date:</td>
 	  <td class=inputcell>
 	    <select title="The day of the month in which you were born (1-31)"
 		    id="day" name="day">
@@ -902,7 +906,7 @@ input, select {
 	    <!-- <input style="text-align:center" size=2 type=text>/<input style="text-align:center" size=2 type=text>/<input style="text-align:center" size=4 type=text> -->
 	  </td>
 	</tr><tr>
-	  <td>Your birthplace:</td>
+	  <td class=alignr>Birthplace:</td>
 	  <td class=inputcell>
 	    <div class=hidden id="coordmethodcell">
               <select class=secondary id="coordmethod" name="coordmethod" onChange="coordmethodselect()">
