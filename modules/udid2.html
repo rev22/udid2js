@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+    Copyright (c) 2012 Michele Bini <michele.bini@gmail.com>
+    Copyright (c) Chris Veness 2002-2010
+  
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+  
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+  
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+ The SHA-1 implementation was obtained from 
+ http://www.movable-type.co.uk/scripts/sha1.html
+ and is licensed with Creative Commons Attribution License 3.0
+-->
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>UDID2 - Create your Open-UDC ID</title>
+    <link href="style.css" rel="stylesheet" media="screen">
+    <script src="sha1.js"></script>
+    <script src="utf8.js"></script>
+    <script src="udid2.js"></script>
+  </head>
+  <body style="text-align:center">
+    <div class="info"><a href="http://www.openudc.org">Open-UDC</a>: currency based on Universal Dividend and Consensus</div>
+    <h3>Your information:</h3>
+    <form class="centered" style="display:inline-table" action="nojavascript.html" method="get">
+      <div class="info">This form allows you to create your Open-UDC ID (UDID2).</div>
+      <table>
+      	<tr>
+      	  <td class="alignr">Given name:</td>
+      	  <td class="inputcell">
+      	    <input id="firstname" size="30" type="text">
+      	  </td>
+      	</tr><tr title="Your family name or surname">
+      	  <td class="alignr">Family name:</td>
+      	  <td class="inputcell">
+      	    <input id="lastname" size=30 type="text">
+      	  </td>
+      	</tr><tr>
+      	  <td class="alignr">Birth date:</td>
+      	  <td class="inputcell">
+      	    <select title="The day of the month in which you were born (1-31)"
+      		    id="day" name="day">
+      	      <option value="">Day</option>
+      	      <option value="01">1</option>
+      	      <option value="02">2</option>
+      	      <option value="03">3</option>
+      	      <option value="04">4</option>
+      	      <option value="05">5</option>
+      	      <option value="06">6</option>
+      	      <option value="07">7</option>
+      	      <option value="08">8</option>
+      	      <option value="09">9</option>
+      	      <option value="10">10</option>
+      	      <option value="11">11</option>
+      	      <option value="12">12</option>
+      	      <option value="13">13</option>
+      	      <option value="14">14</option>
+      	      <option value="15">15</option>
+      	      <option value="16">16</option>
+      	      <option value="17">17</option>
+      	      <option value="18">18</option>
+      	      <option value="19">19</option>
+      	      <option value="20">20</option>
+      	      <option value="21">21</option>
+      	      <option value="22">22</option>
+      	      <option value="23">23</option>
+      	      <option value="24">24</option>
+      	      <option value="25">25</option>
+      	      <option value="26">26</option>
+      	      <option value="27">27</option>
+      	      <option value="28">28</option>
+      	      <option value="29">29</option>
+      	      <option value="30">30</option>
+      	      <option value="31">31</option>
+      	    </select>
+      	    <select title="The month in which you were born"
+      		    id=month name="month">
+      	      <option value="">Month</option>
+      	      <option value="01">January</option>
+      	      <option value="02">February</option>
+      	      <option value="03">March</option>
+      	      <option value="04">April</option>
+      	      <option value="05">May</option>
+      	      <option value="06">June</option>
+      	      <option value="07">July</option>
+      	      <option value="08">August</option>
+      	      <option value="09">September</option>
+      	      <option value="10">October</option>
+      	      <option value="11">November</option>
+      	      <option value="12">December</option>
+      	    </select>
+      	    <input title="The year in which you were born"
+      		   size="4" id="year" name="year" type="text">
+      	  </td>
+      	</tr><tr>
+      	  <td class="alignr">Birthplace:</td>
+      	  <td class="inputcell">
+      	    <div class="hidden" id="coordmethodcell">
+                    <select class="secondary" id="coordmethod" name="coordmethod" onChange="coordmethodselect()">
+      		<option value="geonamesorg">Find earth coordinates via geonames.org</option>
+      		<option value="latlon">Specify latitude/longitude</option>
+                    </select>
+      	    </div>
+      	    <div id="placecell"><input id="place" name="place" size="30" type="text" onChange="birthplacechanged()"></div>
+      	    <div class="hidden" id="geonameslistcell">
+      	      <select style="width:19em" id="geonameslist" name="geonameslist" onChange="geonameselect()" onMouseDown="geonamesclearmsg()">
+      		<option></option>
+      	      </select>
+      	    </div>
+      	    <div class="hidden" id="locationcell">
+      	      <span id="location">
+      		<span title="Latitude of your birth location, in decimal form"><input id="lat" style="text-align:center" size="6" type="text"><sub>(lat)</sub></span>
+      		<span title="Longitude of your birth location, in decimal form"><input id="lon" style="text-align:center" size="5" type="text"><sub>(lon)</sub></span>
+      	      </span>
+      	      <a class="secondary" id="verifylocation" href="http://geonames.org/">Find on geonames.org</a>
+      	    </div>
+      	  </td>
+      	</tr>
+      </table>
+      <input class="secondary" id="reset" type="button" value="Reset" onClick="resetform()">
+      <input class="primary" id="generate" type="button" value="Generate your UDID2" onClick="try { generateudid2() } catch (err) { alert('An error occurred in this page: ' + err.message ); };return false">
+    </form>
+    <div class="hidden" id="generated">
+    <h3>Your OpenUDC ID (UDID2):</h3>
+    <input id="udid2clear" style="font-family:fixed,courier" size="70" title="Your clear UDID2" type="text"><br>
+    <input id="udid2hashed" style="font-family:fixed,courier" size="70" title="Your hashed UDID2" type="text">
+    </div>
+    <div class="info">Your <a href="http://openudc.org/Specifications/OpenpgpIndividualCertification">UDID2</a> is the identification code that allows you to take part in the Open-UDC monetary community.</div>
+    <div class="info">Your information on this form is processed by your web-browser; your birthplace is processed via geonames.org.</div>
+    <div class="info">Internet Explorer users may need to enable accessing data sources across domains.</div>
+    <div class="info">This application requires Javascript.</div>
+  </body>
+</html>
