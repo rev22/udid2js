@@ -1,0 +1,51 @@
+body {
+    background: #eef;
+}
+
+h1,h2,h3 {
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    font-weight: bold;
+    font-family: helvetica,arial;
+    color: #9999bb;
+    border-bottom: 1px solid #99b;
+}
+
+.message {
+    color: #0000dd;
+    font-weight: bold;
+}
+
+.centered {
+    text-align:center;
+}
+
+.hidden {
+    display:none;
+}
+
+.info {
+    color: #444455;
+}
+
+.inputcell {
+    text-align:left;
+}
+
+.alignr {
+    text-align:right;
+}
+
+.secondary {
+    opacity: 0.8;
+    font-size: 75%;
+}
+
+.primary {
+    font-weight: bold;
+}
+
+input, select {
+    font-weight: normal;
+    font-size: 100%;
+}
