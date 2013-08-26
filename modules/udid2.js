@@ -4,7 +4,7 @@
 
 // This code requires Sha1.hash, a separately licensed SHA-1 implementation
 
-// "udid2.js" free software: you can redistribute it and/or modify
+// "udid2.js" is free software: you can redistribute it and/or modify
 // it under the terms of the version 3 of the GNU General Public License
 // as published by the Free Software Foundation.
 
